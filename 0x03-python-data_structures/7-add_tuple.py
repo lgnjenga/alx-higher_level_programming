@@ -10,7 +10,7 @@ def add_tuple(tuple_a=(), tuple_b=()):
     return new_tuple
 
 
-# Test the function
+# Test function
 tuple_a = (1, 89)
 tuple_b = (88, 11)
 new_tuple = add_tuple(tuple_a, tuple_b)
