@@ -41,3 +41,23 @@ class Rectangle:
         return 2 * (self.__width + self.__height)
 
     width_height = property(get_dimensions, set_dimensions)
+
+    @property
+    def width(self):
+        """Get the width of the Rectangle."""
+        return self.__width
+
+    @width.setter
+    def width(self, value):
+        """Set the width of the Rectangle."""
+        self.set_dimensions(value, self.__height)
+
+    @property
+    def height(self):
+        """Get the height of the Rectangle."""
+        return self.__height
+
+    @height.setter
+    def height(self, value):
+        """Set the height of the Rectangle."""
+        self.set_dimensions(self.__width, value)
