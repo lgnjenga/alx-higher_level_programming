@@ -1,56 +1,73 @@
 #!/usr/bin/python3
-"""Unittest for max_integer([...])
-"""
-import unittest
-from unittest.mock import patch
+# 6-max_integer_test.py
+"""Unittests for max_integer([..])."""
 
-# Import the max_integer function from the module
+import unittest
 max_integer = __import__('6-max_integer').max_integer
 
 
 class TestMaxInteger(unittest.TestCase):
+    """Define unittests for max_integer([..])."""
 
-    """Test cases for the max_integer function."""
+    def test_empty_list(self):
+        """Test max_integer with an empty list."""
+        empty = []
+        result = max_integer(empty)
+        self.assertIsNone(result)
 
-    def test_max_integer(self):
-        """Test the max_integer function."""
-        # Test when the list is empty
-        self.assertIsNone(max_integer([]))
+    def test_one_element_list(self):
+        """Test max_integer with a list containing a single element."""
+        one_element = [7]
+        result = max_integer(one_element)
+        self.assertEqual(result, 7)
 
-        # Test when the list contains positive integers
-        self.assertEqual(max_integer([1, 2, 3, 4]), 4)
-        self.assertEqual(max_integer([1, 3, 4, 2]), 4)
-        self.assertEqual(max_integer([4, 3, 2, 1]), 4)
+    def test_ordered_list(self):
+        """Test max_integer with an ordered list of integers."""
+        ordered = [1, 2, 3, 4]
+        result = max_integer(ordered)
+        self.assertEqual(result, 4)
 
-        # Test when the list contains negative integers
-        self.assertEqual(max_integer([-1, -2, -3, -4]), -1)
-        self.assertEqual(max_integer([-1, -3, -4, -2]), -1)
-        self.assertEqual(max_integer([-4, -3, -2, -1]), -1)
+    def test_unordered_list(self):
+        """Test max_integer with an unordered list of integers."""
+        unordered = [1, 2, 4, 3]
+        result = max_integer(unordered)
+        self.assertEqual(result, 4)
 
-        # Test when the list contains both positive and negative integers
-        self.assertEqual(max_integer([1, -2, 3, -4]), 3)
-        self.assertEqual(max_integer([1, -3, 4, -2]), 4)
-        self.assertEqual(max_integer([-4, 3, -2, 1]), 3)
+    def test_max_at_beginning(self):
+        """Test max_integer with a list having
+        the maximum value at the beginning."""
+        max_at_beginning = [4, 3, 2, 1]
+        result = max_integer(max_at_beginning)
+        self.assertEqual(result, 4)
 
-        # Test when the list contains repeated values
-        self.assertEqual(max_integer([1, 1, 1, 1]), 1)
-        self.assertEqual(max_integer([4, 4, 4, 4]), 4)
-        self.assertEqual(max_integer([-3, -3, -3, -3]), -3)
+    def test_floats(self):
+        """Test max_integer with a list of floats."""
+        floats = [1.53, 6.33, -9.123, 15.2, 6.0]
+        result = max_integer(floats)
+        self.assertEqual(result, 15.2)
 
-        # Test when the list contains a single value
-        self.assertEqual(max_integer([5]), 5)
-        self.assertEqual(max_integer([-5]), -5)
+    def test_ints_and_floats(self):
+        """Test max_integer with a list of ints and floats."""
+        ints_and_floats = [1.53, 15.5, -9, 15, 6]
+        result = max_integer(ints_and_floats)
+        self.assertEqual(result, 15.5)
 
-        # Test when the list contains large numbers
-        self.assertEqual(max_integer(
-            [1000000, 100000, 10000, 1000]), 1000000)
-        self.assertEqual(max_integer(
-            [-1000000, -100000, -10000, -1000]), -1000)
+    def test_string(self):
+        """Test max_integer with a string."""
+        string = "Brennan"
+        result = max_integer(string)
+        self.assertEqual(result, 'r')
 
-        # Test when the list is very large
-        with patch('sys.stdout', new_callable=StringIO) as mock_stdout:
-            long_list = list(range(10**6, 0, -1))
-            self.assertEqual(max_integer(long_list), 10**6)
+    def test_list_of_strings(self):
+        """Test max_integer with a list of strings."""
+        strings = ["Brennan", "is", "my", "name"]
+        result = max_integer(strings)
+        self.assertEqual(result, "name")
+
+    def test_empty_string(self):
+        """Test max_integer with an empty string."""
+        result = max_integer("")
+        self.assertIsNone(result)
 
 
 if __name__ == '__main__':
