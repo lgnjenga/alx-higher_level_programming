@@ -5,7 +5,7 @@
 """
 
 
-def inspect_object_attributes(obj):
+def lookup(obj):
     """
        Retrieve and return a list of attributes
        associated with the given object.
