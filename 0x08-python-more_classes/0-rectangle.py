@@ -1,7 +1,9 @@
 #!/usr/bin/python3
+"""Definition of a Rectangle Class"""
+
+
 class Rectangle:
     """
-    This is a simple Rectangle class.
-    It defines a rectangle with no attributes or methods.
+    This is a simple represenation of a rectangle.
     """
     pass
