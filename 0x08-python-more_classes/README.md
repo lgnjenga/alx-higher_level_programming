@@ -1,6 +1,6 @@
 ## 0x08. Python - More Classes and Objects
 
-1. Write an empty class **Rectangle** that defines a rectangle
+1. Write an empty class ==Rectangle== that defines a rectangle
     - You are not allowed to import any module
 ```
 guillaume@ubuntu:~/0x08$ cat 0-main.py
