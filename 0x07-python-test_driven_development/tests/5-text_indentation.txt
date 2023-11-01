@@ -1,0 +1,113 @@
+================================
+How to Use 5-text_indentation.py
+================================
+
+This module contains the function ``text_indentation(text)``.
+
+Usage
+=====
+
+Text is printed with two new lines after each of the characters ``.``, ``?``,
+and ``:``.
+
+::
+
+    >>> text_indentation = __import__('5-text_indentation').text_indentation
+    >>> text_indentation("Hello?")
+    Hello?
+    <BLANKLINE>
+
+No spaces are printed at the beginning of a line.
+
+::
+
+    >>> text_indentation("   Hi there.")
+    Hi there.
+    <BLANKLINE>
+
+::
+
+    >>> text_indentation("          ")
+
+Similarly, no spaces are printed at the end of each printed line.
+
+::
+
+    >>> text_indentation("Hello.   ")
+    Hello.
+    <BLANKLINE>
+
+::
+
+    >>> text_indentation("    Woah now.    This is a different example.   ")
+    Woah now.
+    <BLANKLINE>
+    This is a different example.
+    <BLANKLINE>
+
+New lines are only printed for the characters ``.``, ``?``, and ``:`` -
+text not ending with one of these characters is not ended with a new line.
+
+::
+
+    >>> text_indentation("No ending period, different content")
+    No ending period, different content
+
+New lines within a string are printed as normal.
+
+::
+
+    >>> text_indentation("Let's print a new-line! Here goes:\nPrinted.")
+    Let's print a new-line! Here goes:
+    <BLANKLINE>
+    <BLANKLINE>
+    Printed.
+    <BLANKLINE>
+
+::
+
+    >>> text_indentation("\n\n\n We just printed three new lines.")
+    <BLANKLINE>
+    <BLANKLINE>
+    <BLANKLINE>
+    We just printed three new lines.
+    <BLANKLINE>
+
+::
+    >>> text_indentation("A different \n new line.")
+    A different 
+    new line.
+    <BLANKLINE>
+
+A combo example:
+
+::
+
+    >>> text_indentation("This is a custom example; we are avoiding plagiarism. Another sentence here.")
+    This is a custom example; we are avoiding plagiarism.
+    <BLANKLINE>
+    Another sentence here.
+    <BLANKLINE>
+
+Invalid Text
+============
+
+The parameter ``text`` must be a string. Otherwise, a TypeError is raised.
+
+::
+
+    >>> text_indentation(7)
+    Traceback (most recent call last):
+    TypeError: text must be a string
+
+::
+
+    >>> text_indentation({"one": 1, "two": 2})
+    Traceback (most recent call last):
+    TypeError: text must be a string
+
+::
+
+    >>> text_indentation(None)
+    Traceback (most recent call last):
+    TypeError: text must be a string
