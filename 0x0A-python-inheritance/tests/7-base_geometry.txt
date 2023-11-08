@@ -1,0 +1,110 @@
+The ``7-custom_geometry`` module
+=================================
+
+Using ``CustomGeometry``
+------------------------
+
+Importing the class from the module:
+    >>> CustomGeometry = __import__('7-custom_geometry').CustomGeometry
+
+Attempting to calculate the area without implementation:
+    >>> cg = CustomGeometry()
+    >>> cg.calculate_area()
+    Traceback (most recent call last):
+    	      ...
+    Exception: calculate_area() is not yet defined
+
+Trying to validate a non-integer argument:
+    >>> cg = CustomGeometry()
+    >>> cg.validate_integer("value", "7")
+    Traceback (most recent call last):
+    	      ...
+    TypeError: value must be an integer
+
+Trying to validate a boolean value:
+    >>> cg = CustomGeometry()
+    >>> cg.validate_integer("value", True)
+    Traceback (most recent call last):
+    	      ...
+    TypeError: value must be an integer
+
+Trying to validate a negative value:
+    >>> cg = CustomGeometry()
+    >>> cg.validate_integer("value", -3)
+    Traceback (most recent call last):
+    	      ...
+    ValueError: value must be greater than or equal to 0
+
+Trying to validate a zero value:
+    >>> cg = CustomGeometry()
+    >>> cg.validate_integer("value", 0)
+    Traceback (most recent call last):
+    	      ...
+    ValueError: value must be greater than or equal to 0
+
+Passing a positive value:
+    >>> cg = CustomGeometry()
+    >>> cg.validate_integer("value", 12)
+
+Passing a single argument to validate_integer method:
+    >>> cg = CustomGeometry()
+    >>> cg.validate_integer("value")
+    Traceback (most recent call last):
+    	      ...
+    TypeError: validate_integer() missing 1 required positional argument: 'number'
+
+validate_integer with no arguments:
+    >>> cg = CustomGeometry()
+    >>> cg.validate_integer()
+    Traceback (most recent call last):
+    	      ...
+    TypeError: validate_integer() missing 2 required positional arguments: 'name' and 'number'
+
+Passing three arguments to validate_integer:
+    >>> cg = CustomGeometry()
+    >>> cg.validate_integer("value", 2, 7)
+    Traceback (most recent call last):
+    	      ...
+    TypeError: validate_integer() takes 3 positional arguments but 4 were given
+
+Passing one argument to calculate_area method:
+    >>> cg = CustomGeometry()
+    >>> cg.calculate_area(6)
+    Traceback (most recent call last):
+    	      ...
+    TypeError: calculate_area() takes 1 positional argument but 2 were given
+
+Passing two arguments to calculate_area method:
+    >>> cg = CustomGeometry()
+    >>> cg.calculate_area(6, 9)
+    Traceback (most recent call last):
+    	      ...
+    TypeError: calculate_area() takes 1 positional argument but 3 were given
+
+Passing a tuple to the method:
+    >>> cg = CustomGeometry()
+    >>> cg.validate_integer("size", (5,))
+    Traceback (most recent call last):
+    	      ...
+    TypeError: size must be an integer
+
+Passing a list to the method:
+    >>> cg = CustomGeometry()
+    >>> cg.validate_integer("size", [4])
+    Traceback (most recent call last):
+    	      ...
+    TypeError: size must be an integer
+
+Passing a dictionary to the method:
+    >>> cg = CustomGeometry()
+    >>> cg.validate_integer("size", {3, 4})
+    Traceback (most recent call last):
+              ...
+    TypeError: size must be an integer
+
+Passing None to the method:
+    >>> cg = CustomGeometry()
+    >>> cg.validate_integer("size", None)
+    Traceback (most recent call last):
+              ...
+    TypeError: size must be an integer
